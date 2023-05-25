@@ -15,7 +15,15 @@ architecture Behavioral of registrador is
 
 begin
     process(rst,clk)
-    begin
+    --/*ToDo*/
+    begin -- verificacao da borda -> sensivel a borda de subida do clock e reset 
+        if rst = '1' then
+              Q <= valorInicial(31 downto 0);
+       elsif clk'event and clk = '1' then
+           if en = '1' then
+              Q <= D; -- Dados de entrada vai para saida caso (en) esteja em nivel logico alto
+           end if;
+       end if;
         
     end process;
 
