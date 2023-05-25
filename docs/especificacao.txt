@@ -1,0 +1,13 @@
+========================================================
+Implementação de um processador capaz de executar um subconjunto de instruções da arquitetura MIPS:
+========================================================
+
+As instruções são:
+ADDU, SUBU, AND, OR, XOR, NOR, LW, SW e ORI
+A implementação é com um único ciclo de clock (tipo monociclo). O processador é sensível à borda de subida do clock externo.
+
+O único registrador de controle é o PC. Não há registrador de instruções ou de controle de acesso à memória.
+
+O Bloco de Controle depende apenas do valor instantâneo da linha "instruction", saída da Memória de Instruções.
+
+As memórias externas (Memória de Instruções e Memória de Dados) são assíncronas e respondem de forma imediata a qualquer comando externo. A organização é do tipo Harvard (memórias separadas para instruções e dados).
