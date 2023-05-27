@@ -70,4 +70,9 @@ begin
 
     -- gerador de sinais de controle para acesso a memoria externa
     --AQUI
+    -- define a ativacao dos sinais de controle: '1' para (Store Word) ou (Load Store), '0' para outras instrucoes
+    uins.en  <= '1' when i = SW or i = LW else '0';
+     -- define da transferencia de dados: '0' escrita (SW), '1' leitura
+    uins.rw  <= '0' when i = SW else '1';
+
 end Behavioral;
