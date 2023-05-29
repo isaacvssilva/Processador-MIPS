@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
---AQUI
 use work.pkg_mips.all;
 
 entity processadorMIPS is
@@ -16,11 +15,22 @@ end processadorMIPS;
 architecture Behavioral of processadorMIPS is
     signal uins : microinstrucoes;
 begin
-    --AQUI
-    
-    --AQUI
-        
-    --AQUI
-    --AQUI
+    dp: entity work.datapath port map (
+    clk=>clk,  
+        rst=>rst, 
+        instruction=>instruction,
+        uins=>uins, 
+        d_address=>d_address, 
+        data=>data
+    );
+    ct: entity work.unidadeControle port map (
+        clk=>clk, 
+        rst=>rst, 
+        uins=>uins, 
+        i_address=>i_address, 
+        instruction=>instruction
+    );
+    en <= uins.en;
+    rw <= uins.rw;
      
 end Behavioral;
