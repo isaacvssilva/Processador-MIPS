@@ -11,12 +11,12 @@ end testbench;
 architecture Behavioral of testbench is
     signal reset, clock: std_logic;
     
-    signal Iadress, Idata : reg32 := (others => '0' );   
+    signal Iadress, Idata : bus32 := (others => '0' );   
     
     signal ce, rw, bw: std_logic;
     
     signal Dadress, Ddata, i_cpu_address, d_cpu_address, 
-           data_cpu, tb_add, tb_data : reg32 := (others => '0' );
+           data_cpu, tb_add, tb_data : bus32 := (others => '0' );
     
     signal Dce_n, Dwe_n, Doe_n, Ice_n, Iwe_n, Ioe_n, rstCPU, 
            go_i, go_d: std_logic;
@@ -71,7 +71,7 @@ begin
             rst=>rstCPU,
             i_address => i_cpu_address,
             instruction => Idata,
-            ce=>ce,  
+            en=>ce,  
             rw=>rw,
             d_address => d_cpu_address,
             data => data_cpu
